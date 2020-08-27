@@ -1,0 +1,236 @@
+<!-- Default Buttons -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Buttons</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <h4>Default Buttons</h4>
+    <button mat-button>Default</button>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warning</button>
+    <button mat-button disabled>Disabled</button>
+
+    <h4>Flat Buttons</h4>
+    <button mat-flat-button>Default</button>
+    <button mat-flat-button color="primary">Primary</button>
+    <button mat-flat-button color="accent">Accent</button>
+    <button mat-flat-button color="warn">Warning</button>
+    <button mat-flat-button disabled>Disabled</button>
+
+    <h4>Raised Buttons</h4>
+    <button mat-raised-button>Default</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warning</button>
+    <button mat-raised-button disabled>Disabled</button>
+
+    <h4>Stroked Buttons</h4>
+    <button mat-stroked-button>Default</button>
+    <button mat-stroked-button color="primary">Primary</button>
+    <button mat-stroked-button color="accent">Accent</button>
+    <button mat-stroked-button color="warn">Warning</button>
+    <button mat-stroked-button disabled>Disabled</button>
+
+    <h4>Icon Buttons</h4>
+    <button mat-icon-button><mat-icon>toys</mat-icon></button>
+    <button mat-icon-button color="primary"><mat-icon>toys</mat-icon></button>
+    <button mat-icon-button color="accent"><mat-icon>toys</mat-icon></button>
+    <button mat-icon-button color="warn"><mat-icon>toys</mat-icon></button>
+    <button mat-icon-button disabled><mat-icon>toys</mat-icon></button>
+
+    <h4>Fab Buttons</h4>
+    <button mat-fab>Default</button>
+    <button mat-fab color="primary">Primary</button>
+    <button mat-fab color="accent">Accent</button>
+    <button mat-fab color="warn">Warning</button>
+    <button mat-fab disabled>Disabled</button>
+
+    <h4>Mini Fab Buttons</h4>
+    <button mat-mini-fab>Default</button>
+    <button mat-mini-fab color="primary">Primary</button>
+    <button mat-mini-fab color="accent">Accent</button>
+    <button mat-mini-fab color="warn">Warning</button>
+    <button mat-mini-fab disabled>Disabled</button>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-stroked-button href="https://stackblitz.com/angular/jdygnnaynld?file=app%2Fbutton-types-example.html">
+      <mat-icon>code</mat-icon>
+      StackBlitz
+    </a>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Button Toggle -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Button Toggle</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-button-toggle-group aria-label="Example Button Toggle">
+      <mat-button-toggle value="left">left</mat-button-toggle>
+      <mat-button-toggle value="center">center</mat-button-toggle>
+      <mat-button-toggle value="right">right</mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-stroked-button href="https://stackblitz.com/angular/mnbexqbdory?file=app%2Fbutton-toggle-overview-example.html">
+      <mat-icon>code</mat-icon>
+      StackBlitz
+    </a>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Badge Buttons -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Badge Buttons</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
+    </p>
+
+    <p>
+      Button with a badge on the left
+      <button mat-raised-button color="primary"
+              matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+        Action
+      </button>
+    </p>
+
+    <p>
+      Icon with a badge
+      <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+      <!-- Include text description of the icon's meaning for screen-readers -->
+      <span class="cdk-visually-hidden">
+      Example with a home icon with overlaid badge showing the number 15
+    </span>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-stroked-button href="https://stackblitz.com/angular/rxgdkxdapmo?file=app%2Fbadge-overview-example.html">
+      <mat-icon>code</mat-icon>
+      StackBlitz
+    </a>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Chips-->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Chips</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Basic Chips -->
+    <h4>Basic chips</h4>
+    <mat-chip-list aria-label="Fish selection">
+      <mat-chip>One fish</mat-chip>
+      <mat-chip>Two fish</mat-chip>
+      <mat-chip color="primary" selected>Primary fish</mat-chip>
+      <mat-chip color="accent" selected>Accent fish</mat-chip>
+    </mat-chip-list>
+
+    <!-- Chips Autocomplete -->
+    <h4>Chips Autocomplete</h4>
+    <mat-form-field class="example-chip-list" style="width: 100%;">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip
+          *ngFor="let fruit of fruits"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(fruit)">
+          {{fruit.name}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="New fruit..."
+          #fruitInput
+          [formControl]="fruitCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit.name">
+          {{fruit.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- Chips with input -->
+    <h4>Chips with input</h4>
+    <mat-form-field style="width: 100%;">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                  [removable]="removable" (removed)="remove(fruit)">
+          {{fruit.name}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="New fruit..."
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+
+    <!-- Stacked Chips -->
+    <h4>Stacked chips</h4>
+    <mat-chip-list class="stacked-chips" aria-label="Color selection">
+      <mat-chip *ngFor="let chip of availableColors" selected [color]="chip.color">
+        {{chip.name}}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-stroked-button href="https://stackblitz.com/angular/kggoypqqyqv?file=app%2Fchips-overview-example.html">
+      <mat-icon>code</mat-icon>
+      StackBlitz
+    </a>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Icons -->
+<mat-card>
+  <mat-card-header><mat-card-title>Icons</mat-card-title></mat-card-header>
+  <mat-card-content class="icon-example-container">
+    <h4>Material Icons</h4>
+    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example toys icon">toys</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example 3d rotation icon">3d_rotation</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example accessibility icon">accessibility</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example accessibility new icon">accessibility_new</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example http icon">http</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example https icon">https</mat-icon>
+
+    <h4>Font Awesome Icons</h4>
+      <h5>Solid Icons</h5>
+      <fa-icon [icon]="['fas', 'square']"></fa-icon>
+      <fa-icon [icon]="['fas', 'check-square']"></fa-icon>
+      <h5>Regular Icons</h5>
+      <fa-icon [icon]="['far', 'square']"></fa-icon>
+      <fa-icon [icon]="['far', 'check-square']"></fa-icon>
+      <h5>Brand Icons</h5>
+      <fa-icon [icon]="['fab', 'stack-overflow']"></fa-icon>
+      <fa-icon [icon]="['fab', 'github']"></fa-icon>
+      <fa-icon [icon]="['fab', 'medium']"></fa-icon>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-stroked-button href="https://stackblitz.com/angular/vrlakdjrpqr?file=app%2Ficon-overview-example.html">
+      <mat-icon>code</mat-icon>
+      StackBlitz
+    </a>
+    <a mat-stroked-button href="https://material.io/resources/icons/?style=baseline">
+      <mat-icon>link</mat-icon>
+      Material Icons
+    </a>
+    <a mat-stroked-button href="https://fontawesome.com/icons?d=gallery">
+      <mat-icon>link</mat-icon>
+      Font Awesome Icons
+    </a>
+  </mat-card-actions>
+</mat-card>

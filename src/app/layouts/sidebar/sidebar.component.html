@@ -1,0 +1,97 @@
+<mat-sidenav-container>
+  <mat-sidenav [opened]="true"
+               mode="side"
+               position="start"
+               class="sidebar"
+               [@openCloseSidenav]="opened ? 'open' : 'closed'"
+               role="navigation">
+    <mat-nav-list class="sidemenu">
+
+      <div *ngFor="let location of nav">
+        <a mat-list-item
+           [routerLink]="location.path ? location.path : null"
+           [routerLinkActive]="location.path ? 'activeSidebarLink' : ''"
+           [ngClass]="{activeSidebarLink: location.activeToggle ? location.activeToggle() : false}"
+           (click)="location.clickAction ? location.clickAction.apply(null) : null">
+          <mat-icon *ngIf="location.icon">{{location.icon}}</mat-icon>
+          <span class="nav-text" [ngClass]="{collapsed: !opened}">{{location.title}}</span>
+          <mat-icon class="nav-dropdown" *ngIf="!uiSubmenuShowing && opened && location.submenus">keyboard_arrow_down</mat-icon>
+          <mat-icon class="nav-dropdown" *ngIf="uiSubmenuShowing && opened && location.submenus">keyboard_arrow_up</mat-icon>
+        </a>
+        <div *ngIf="uiSubmenuShowing && opened && location.submenus">
+          <a mat-list-item *ngFor="let location of location.submenus" [routerLink]="location.path" routerLinkActive="activeSidebarLink" class="subheader">
+            <span class="nav-text" [ngClass]="{collapsed: !opened}">{{location.title}}</span>
+          </a>
+        </div>
+      </div>
+
+
+
+      <!--&lt;!&ndash;
+        Dashboard
+      &ndash;&gt;
+      <a mat-list-item [routerLink]="'/dashboard'" routerLinkActive="activeSidebarLink">
+        <mat-icon class="nav-icon">dashboard</mat-icon>
+        <span class="nav-text" [ngClass]="{collapsed: !opened}">Dashboard</span>
+      </a>
+
+      &lt;!&ndash;
+        User Interface
+      &ndash;&gt;
+      <a mat-list-item (click)="uiSubmenuShowing = !uiSubmenuShowing" [ngClass]="{activeSidebarLink: uiActive}">
+        <mat-icon class="nav-icon">invert_colors</mat-icon>
+        <span class="nav-text" [ngClass]="{collapsed: !opened}">User Interface</span>
+        <mat-icon class="nav-dropdown" *ngIf="!uiSubmenuShowing && opened">keyboard_arrow_down</mat-icon>
+        <mat-icon class="nav-dropdown" *ngIf="uiSubmenuShowing && opened">keyboard_arrow_up</mat-icon>
+      </a>
+      <div *ngIf="uiSubmenuShowing && opened">
+        <a mat-list-item class="subheader" [routerLink]="'/ui/buttons-indicators'" routerLinkActive="activeSidebarLink">
+          <span class="nav-text" [ngClass]="{collapsed: !opened}">Buttons & Indicators</span>
+        </a>
+        <a mat-list-item class="subheader" [routerLink]="'/ui/forms'" routerLinkActive="activeSidebarLink">
+          <span class="nav-text" [ngClass]="{collapsed: !opened}">Forms</span>
+        </a>
+      </div>
+
+      &lt;!&ndash;
+        Components
+      &ndash;&gt;
+      <a mat-list-item [routerLink]="'/components'" routerLinkActive="activeSidebarLink">
+        <mat-icon class="nav-icon">donut_small</mat-icon>
+        <span class="nav-text" [ngClass]="{collapsed: !opened}">Components</span>
+      </a>
+
+      &lt;!&ndash;
+        Charts
+      &ndash;&gt;
+      <a mat-list-item [routerLink]="'/charts'" routerLinkActive="activeSidebarLink">
+        <mat-icon class="nav-icon">bar_chart</mat-icon>
+        <span class="nav-text" [ngClass]="{collapsed: !opened}">Charts</span>
+      </a>
+
+      &lt;!&ndash;
+        Pages
+      &ndash;&gt;
+      <a mat-list-item [routerLink]="'/pages'" routerLinkActive="activeSidebarLink">
+        <mat-icon class="nav-icon">pages</mat-icon>
+        <span class="nav-text" [ngClass]="{collapsed: !opened}">Pages</span>
+      </a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav mode="over" [opened]="settingsMenuOpened" position="end">
+    <div class="padding--medium">
+      <mat-form-field class="width--100pct" color="accent">
+        <mat-label>Theme</mat-label>
+        <mat-select [(value)]="currentTheme" (valueChange)="changeTheme($event)" >
+          <mat-option *ngFor="let theme of themes" [value]="theme.value">
+            {{theme.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-slide-toggle [checked]="isDark" (change)="toggleDarkness()">Dark Mode</mat-slide-toggle>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content [@openCloseSidenavContent]="opened ? 'open' : 'closed'">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

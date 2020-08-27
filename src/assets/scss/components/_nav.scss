@@ -1,0 +1,17 @@
+/* Navigation Styles */
+.sidemenu {
+  width: $side-menu-width;
+  min-width: 64px;
+}
+
+mat-toolbar-row {
+
+  h1 {
+    user-select: none;
+  }
+
+  h1:focus {
+    outline: none;
+  }
+
+}

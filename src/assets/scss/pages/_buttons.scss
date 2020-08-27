@@ -1,0 +1,10 @@
+.stacked-chips {
+  .mat-chip-list-wrapper {
+    max-width: 200px;
+
+    mat-chip {
+      min-width: 200px;
+    }
+
+  }
+}

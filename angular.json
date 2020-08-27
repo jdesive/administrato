@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/scss/main.scss"
             ],
             "scripts": []
           },
@@ -120,6 +121,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "administrato"
+    }
+  },
+  "defaultProject": "administrato",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

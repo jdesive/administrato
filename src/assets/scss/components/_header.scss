@@ -1,0 +1,26 @@
+mat-toolbar-row {
+  padding-left: 0 !important;
+
+  .logo-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: $header-height;
+    width: $header-logo-box-collapsed-width;
+    transition-property: width;
+    transition-duration: 0.3s;
+
+    &.isOpen {
+      width: $side-menu-width;
+    }
+
+    img {
+      height: calc(#{$header-height} - 16px);
+      margin-right: calc(#{$magic} * 2);
+      padding-left: calc(#{$magic} * 4);
+    }
+
+  }
+
+}

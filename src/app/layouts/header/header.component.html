@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="logo-box fade" [ngClass]="{isOpen: isSideNavOpen}">
+      <h1 *ngIf="isSideNavOpen" [routerLink]="'/dashboard'">Administrato</h1>
+      <img *ngIf="!isSideNavOpen" [routerLink]="'/dashboard'" src="assets/images/sidenav-logo-collapsed.svg">
+    </div>
+    <button mat-icon-button (click)="sideNavToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span style="flex: 1 1 auto;"></span>
+    <a mat-button [matMenuTriggerFor]="uiMenu">
+      Admin
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </a>
+    <mat-menu #uiMenu="matMenu" yPosition="below">
+      <button mat-menu-item [routerLink]="'/login'">
+        <mat-icon>exit_to_app</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+    <button mat-icon-button (click)="settingsMenuToggle()">
+      <fa-icon [icon]="['fas', 'cogs']"></fa-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

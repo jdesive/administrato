@@ -1,0 +1,51 @@
+.sidebar {
+  height: 100%;
+  width: $side-menu-width;
+  min-width: 64px;
+
+  .sidemenu {
+    width: 100%;
+    .toggle-button {
+      margin: 16px;
+    }
+    overflow-x: hidden;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      width: 100%;
+
+      .mat-list-item-content {
+        width: 100%;
+      }
+
+      .nav-icon {
+        flex: 2;
+        margin: $magic;
+        user-select: none;
+      }
+      .nav-text {
+        flex: 6;
+        margin-left: calc(#{$magic} * 2);
+        user-select: none;
+        transition-property: visibility;
+        transition-delay: 0.3s;
+
+        &.collapsed {
+          visibility: hidden;
+          width: 0;
+        }
+      }
+      .nav-dropdown {
+        flex: 1;
+        user-select: none;
+      }
+    }
+  }
+}
+
+.subheader {
+  margin-left: calc(#{$magic} * 6);
+}

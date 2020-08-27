@@ -1,0 +1,27 @@
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  app-header {
+    max-height: $header-height;
+  }
+
+  .content {
+    flex: 1;
+    min-height: calc(100vh - (#{$header-height} + #{$footer-height}));
+    max-height: calc(100vh - (#{$header-height} + #{$footer-height}));
+
+    .mat-sidenav-content {
+      overflow-y: auto;
+      min-height: calc(100vh - (#{$header-height} + #{$footer-height}));
+      max-height: calc(100vh - (#{$header-height} + #{$footer-height}));
+    }
+
+  }
+
+  app-footer {
+    max-height: $footer-height;
+  }
+
+}

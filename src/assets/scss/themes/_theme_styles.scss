@@ -1,0 +1,62 @@
+@mixin themed-stylesheets($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  // Primary Colors
+  $primary-color: mat-color($primary);
+  $primary-contrast: mat-color($primary, default-contrast);
+  $primary-color-100: mat-color($primary, 100);
+  $primary-color-200: mat-color($primary, 200);
+  $primary-color-300: mat-color($primary, 300);
+  $primary-color-400: mat-color($primary, 400);
+  $primary-color-500: mat-color($primary, 500);
+  $primary-color-600: mat-color($primary, 600);
+  $primary-color-700: mat-color($primary, 700);
+  $primary-color-800: mat-color($primary, 800);
+  $primary-color-900: mat-color($primary, 900);
+  $primary-contrast-100: mat-contrast($primary, 100);
+  $primary-contrast-200: mat-contrast($primary, 200);
+  $primary-contrast-300: mat-contrast($primary, 300);
+  $primary-contrast-400: mat-contrast($primary, 400);
+  $primary-contrast-500: mat-contrast($primary, 500);
+  $primary-contrast-600: mat-contrast($primary, 600);
+  $primary-contrast-700: mat-contrast($primary, 700);
+  $primary-contrast-800: mat-contrast($primary, 800);
+  $primary-contrast-900: mat-contrast($primary, 900);
+
+  // Accent Colors
+  $accent-color: mat-color($accent);
+  $accent-contrast: mat-color($accent, default-contrast);
+  $accent-color-100: mat-color($accent, 100);
+  $accent-color-200: mat-color($accent, 200);
+  $accent-color-300: mat-color($accent, 300);
+  $accent-color-400: mat-color($accent, 400);
+  $accent-color-500: mat-color($accent, 500);
+  $accent-color-600: mat-color($accent, 600);
+  $accent-color-700: mat-color($accent, 700);
+  $accent-color-800: mat-color($accent, 800);
+  $accent-color-900: mat-color($accent, 900);
+  $accent-contrast-100: mat-contrast($accent, 100);
+  $accent-contrast-200: mat-contrast($accent, 200);
+  $accent-contrast-300: mat-contrast($accent, 300);
+  $accent-contrast-400: mat-contrast($accent, 400);
+  $accent-contrast-500: mat-contrast($accent, 500);
+  $accent-contrast-600: mat-contrast($accent, 600);
+  $accent-contrast-700: mat-contrast($accent, 700);
+  $accent-contrast-800: mat-contrast($accent, 800);
+  $accent-contrast-900: mat-contrast($accent, 900);
+
+  $warn-color: mat-color($warn);
+
+  a {
+    color: map_get($accent, 500);
+  }
+
+  .activeNavLink, .activeSidebarLink {
+    color: map_get($accent, 500) !important;
+  }
+
+}

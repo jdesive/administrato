@@ -1,0 +1,153 @@
+/* Floats */
+$floats: (
+  right, left, bottom, top
+);
+
+@each $float in $floats {
+  .float--#{$float} {
+    float: $float;
+  }
+  .float--#{$float}-impt {
+    float: $float !important;
+  }
+}
+
+/* Padding */
+$paddings: (
+  small: 1, medium: 2, large: 3
+);
+
+@each $paddingClass, $padding in $paddings {
+  .padding--#{$paddingClass} {
+    padding: calc(#{$magic} * #{$padding});
+  }
+  .padding--#{$paddingClass}-impt {
+    padding: calc(#{$magic} * #{$padding}) !important;
+  }
+}
+
+/* Font Size */
+$fontSizes: (
+  ex-small: 2, small: 4, medium: 6, large: 8
+);
+
+@each $fontClass, $size in $fontSizes {
+  .font-size--#{$fontClass} {
+    font-size: calc(#{$magic} * #{$size});
+  }
+  .font-size--#{$fontClass}-impt {
+    font-size: calc(#{$magic} * #{$size}) !important;
+  }
+}
+
+/* Widths */
+$widths: (
+  100pct: 100%, 90pct: 90%, 80pct: 80%, 70pct: 70%, 60pct: 60%, 50pct: 50%, 40pct: 40%, 30pct: 30%, 20pct: 20%,
+  10pct: 10%, 0pct: 0,
+);
+
+@each $widthClass, $width in $widths {
+  .width--#{$widthClass} {
+    width: calc(#{$magic} * #{$width});
+  }
+  .width--#{$widthClass}-impt {
+    width: calc(#{$magic} * #{$width}) !important;
+  }
+  .min-width--#{$widthClass} {
+    min-width: calc(#{$magic} * #{$width});
+  }
+  .min-width--#{$widthClass}-impt {
+    min-width: calc(#{$magic} * #{$width}) !important;
+  }
+  .max-width--#{$widthClass} {
+    max-width: calc(#{$magic} * #{$width});
+  }
+  .max-width--#{$widthClass}-impt {
+    max-width: calc(#{$magic} * #{$width}) !important;
+  }
+}
+
+/* Displays */
+$displays: (
+  inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table,
+  table-caption, table-column-group, table-header-group, table-footer-group, table-row-group, table-cell, table-column,
+  table-row, none, initial, inherit
+);
+
+@each $display in $displays {
+  .display--#{$display} {
+    display: $display;
+  }
+  .display--#{$display}-impt {
+    display: $display !important;
+
+  }
+}
+
+/* Margins */
+$margins: (
+  small: 1, medium: 2, large: 3
+);
+
+@each $marginClass, $margin in $paddings {
+  .margin--#{$marginClass} {
+    margin: calc(#{$magic} * #{$margin});
+  }
+  .margin--#{$marginClass}-impt {
+    margin: calc(#{$magic} * #{$margin}) !important;
+  }
+  .margin-left--#{$marginClass} {
+    margin-left: calc(#{$magic} * #{$margin});
+  }
+  .margin-left--#{$marginClass}-impt {
+    margin-left: calc(#{$magic} * #{$margin}) !important;
+  }
+  .margin-right--#{$marginClass} {
+    margin-right: calc(#{$magic} * #{$margin});
+  }
+  .margin-right--#{$marginClass}-impt {
+    margin-right: calc(#{$magic} * #{$margin}) !important;
+  }
+  .margin-top--#{$marginClass} {
+    margin-top: calc(#{$magic} * #{$margin});
+  }
+  .margin-top--#{$marginClass}-impt {
+    margin-top: calc(#{$magic} * #{$margin}) !important;
+  }
+  .margin-bottom--#{$marginClass} {
+    margin-bottom: calc(#{$magic} * #{$margin});
+  }
+  .margin-bottom--#{$marginClass}-impt {
+    margin-bottom: calc(#{$magic} * #{$margin}) !important;
+  }
+}
+
+/* Visibility */
+$visibilities: (hidden, visible, collapse, inherit, initial, revert, unset);
+
+@each $visibilityClass, $visibility in $visibilities {
+  .visibility--#{$visibilityClass} {
+    visibility: calc(#{$magic} * #{$visibility});
+  }
+  .visibility--#{$visibilityClass}-impt {
+    visibility: calc(#{$magic} * #{$visibility}) !important;
+  }
+}
+
+/* Demo Styles */
+.display-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  padding: calc(#{$magic} * 4);
+  height: 100%;
+
+  mat-card {
+    width: 15%;
+    margin: calc(#{$magic} * 3);
+  }
+
+}

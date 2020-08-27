@@ -1,0 +1,46 @@
+@mixin make-stylesheets($themes-map) {
+  @each $css-class, $theme in $themes-map {
+    $primary-base: map-get($theme, primary-base);
+    $accent-base: map-get($theme, accent-base);
+    $warn-base: if(map-has-key($theme, warn-base), map-get($theme, warn-base), $mat-red);
+
+    $primary: if(map-has-key($theme, primary), map-get($theme, primary), mat-palette($primary-base));
+    $accent: if(map-has-key($theme, accent), map-get($theme, accent), mat-palette($accent-base));
+    $warn: if(map-has-key($theme, warn), map-get($theme, warn), mat-palette($warn-base));
+
+    $light-or-dark: if(map-has-key($theme, light-or-dark), map-get($theme, light-or-dark), '');
+
+    // Light-themes:
+    @if $light-or-dark == '' or $light-or-dark == 'light' or $light-or-dark == 'l' or $light-or-dark == 'both' {
+      .#{$css-class} {
+        $theme: mat-light-theme($primary, $accent, $warn);
+        @include angular-material-theme($theme);
+        @if mixin-exists(themed-stylesheets) {
+          @include themed-stylesheets($theme);
+        }
+      }
+    }
+
+    // Dark-themes:
+    @if $light-or-dark == '' or $light-or-dark == 'dark' or $light-or-dark == 'd' or $light-or-dark == 'both' {
+      .#{$css-class}-dark {
+        $theme: mat-dark-theme($primary, $accent, $warn);
+        @include angular-material-theme($theme);
+        @if mixin-exists(themed-stylesheets) {
+          @include themed-stylesheets($theme);
+        }
+      }
+    }
+
+    // Below stylesheets have been used in theme-switcher-tool (in the toolbar):
+    .theme-primary.#{$css-class} {
+      background-color: mat-color($primary);
+    }
+    .theme-accent.#{$css-class} {
+      background-color: mat-color($accent);
+    }
+    .theme-warn.#{$css-class} {
+      background-color: mat-color($warn);
+    }
+  }
+}

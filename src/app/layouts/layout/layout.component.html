@@ -1,0 +1,13 @@
+<div class="wrapper layout-container">
+  <app-header (sideNavToggleSwitch)="toggleSideNav()"
+    [isSideNavOpen]="sideNavOpened"
+    (settingsMenuToggleSwitch)="toggleSettingsMenu()"
+    [isSettingsMenuOpened]="settingsMenuOpened"></app-header>
+  <app-sidebar [opened]="sideNavOpened"
+    [settingsMenuOpened]="settingsMenuOpened"
+    (changeThemeToggle)="setActiveTheme($event)"
+    [currentTheme]="activeTheme"
+    (darknessToggle)="setThemeDark($event)"
+    class="content"></app-sidebar>
+  <app-footer></app-footer>
+</div>

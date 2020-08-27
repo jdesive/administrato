@@ -1,0 +1,59 @@
+/* Material Themes */
+@import "~@angular/material/theming";
+@include mat-core();
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto',
+  $headline: mat-typography-level(24px, 48px, 400),
+  $body-1: mat-typography-level(16px, 24px, 400)
+);
+
+@import "light_blue";
+@import "dark_green";
+
+$themes-map: (
+  /* Custom Themes */
+  green-thumb: (
+    primary-base: $dark-theme-primary,
+    accent-base: $dark-theme-accent,
+    warn-base: $dark-theme-warn,
+    light-or-dark: 'both'
+  ),
+  america: (
+    primary-base: $light-theme-primary,
+    accent-base: $light-theme-accent,
+    warn-base: $light-theme-warn,
+    light-or-dark: 'both'
+  ),
+
+
+  /* Material Themes */
+  deeppurple-amber: (
+    primary-base: $mat-deep-purple,
+    accent-base: $mat-amber,
+    warn-base: $mat-red,
+    light-or-dark: 'both'
+  ),
+  indigo-pink: (
+    primary-base: $mat-indigo,
+    accent-base: $mat-pink,
+    warn-base: $mat-red,
+    light-or-dark: 'both'
+  ),
+  pink-bluegrey: (
+    primary-base: $mat-pink,
+    accent-base: $mat-blue-gray,
+    warn-base: $mat-red,
+    light-or-dark: 'both'
+  ),
+  purple-green: (
+    primary-base: $mat-purple,
+    accent-base: $mat-green,
+    warn-base: $mat-red,
+    light-or-dark: 'both'
+  ),
+);
+
+@import "theme_styles";
+@import 'themes_core';
+@include make-stylesheets($themes-map);

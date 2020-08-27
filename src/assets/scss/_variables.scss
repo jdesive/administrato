@@ -1,0 +1,10 @@
+/* General */
+$magic: 4px;
+
+/* Navigation */
+$header-height: calc(#{$magic} * 16);
+$side-menu-width: calc(#{$magic} * 65);
+$header-logo-box-collapsed-width: calc(#{$magic} * 18);
+$side-menu-margin-top: $header-height;
+$footer-height: calc(#{$magic} * 16);
+$content-height: calc(100% - (#{$header-height} + #{$footer-height}));

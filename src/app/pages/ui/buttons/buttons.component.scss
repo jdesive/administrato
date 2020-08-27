@@ -1,0 +1,31 @@
+
+:host {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.mat-card {
+  width: 40%;
+  margin: 16px;
+
+  button {
+    margin: 8px;
+  }
+
+  .mat-card-actions {
+    .mat-stroked-button {
+      margin-right: 16px;
+    }
+  }
+
+}
+
+.icon-example-container {
+  mat-icon, fa-icon {
+    margin: 16px;
+    font-size: 24px;
+  }
+}
